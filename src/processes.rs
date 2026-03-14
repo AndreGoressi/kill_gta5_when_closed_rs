@@ -141,7 +141,7 @@ pub fn get_processes_by_name(name: &str, initial_capacity: Option<usize>) -> Vec
     .for_each(|pid| match NamedProcess::open(pid) {
         Ok(proc) => {
             println!("Found process: {}", proc.name);
-            if proc.name.to_lowercase().contains(name) {
+            if proc.name.to_lowercase().contains(&name.to_lowercase()) {
                 ps.push(proc);
             }
         },
