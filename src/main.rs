@@ -39,13 +39,6 @@ struct BaseCliOpts {
     loop_seconds: Option<u64>,
 }
 
-#[derive(Debug)]
-enum ProgramStatus {
-    StatusRunning,
-    StatusDumb,
-    StatusClosed,
-}
-
 trait OptionFlatmap<T> {
     type Item;
     fn flat_map<U, F, I>(self, f: F) -> Option<U>
