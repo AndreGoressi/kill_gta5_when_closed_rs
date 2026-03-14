@@ -41,7 +41,7 @@ environment:
     RUST_VERSION: stable
 
     # TODO Update this to match the name of your project.
-    CRATE_NAME: kill_gta5_when_closed_rs
+    CRATE_NAME: kill_gta5_enhanced_when_closed_rs
   matrix:
     # MinGW
     - TARGET: x86_64-pc-windows-gnu
