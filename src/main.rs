@@ -74,8 +74,6 @@ fn main() {
         println!("Running in verbose mode.");
     }
 
-    let mut program_status = ProgramStatus::StatusClosed;
-
     loop {
         let mut inside_loop = false;
         get_processes_by_name(opts.process_name.as_str(), Some(1))
@@ -111,21 +109,14 @@ fn main() {
 
                 if opts.verbose > 0 {
                     println!(
-                        "ITEM: {} ({}), has_window? {}, with title {}. Program status is {:?} -> {:?}",
+                        "ITEM: {} ({}), has_window? {}, title: {}",
                         item_name,
                         pid,
                         item_window.is_some(),
-                        item_window_title,
-                        program_status,
-                        next_program_status,
+                        item_window_title
                     );
                 }
-
-                program_status = next_program_status;
             });
-        if !inside_loop {
-            program_status = ProgramStatus::StatusClosed;
-        }
 
         let default_seconds = if opts.verbose > 0 { 1 } else { 120 };
 
