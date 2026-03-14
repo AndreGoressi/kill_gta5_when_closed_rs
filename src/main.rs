@@ -10,7 +10,7 @@ fn main() {
     println!("Sirching...: {}", target_name);
 
     loop {
-        let processes = get_processes_by_name(target_name);
+        let processes = get_processes_by_name(target_name, None);
 
         if processes.is_empty() {
             thread::sleep(time::Duration::from_secs(2));
