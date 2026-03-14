@@ -99,32 +99,22 @@ fn main() {
                         .unwrap_or(String::new()),
                 );
 
-                let next_program_status = if item_window.is_some() {
-                    ProgramStatus::StatusRunning
-                } else {
-                    match program_status {
-                        ProgramStatus::StatusRunning => {
-                            ProgramStatus::StatusDumb
-                        }
-                        ProgramStatus::StatusDumb => {
-                            if opts.verbose > 0 && !opts.dry_run {
-                                println!("Killing the process {}", pid);
-                            }
-                            else if opts.verbose > 0 && opts.dry_run {
-                                println!("[DRY RUN] Would kill the process {}", pid);
-                            }
-
-                            if !opts.dry_run {
-                                item.kill(None).ok();
-                            }
-                            ProgramStatus::StatusClosed
-                        }
-                        ProgramStatus::StatusClosed => {
-                            //panic!("This should never happen!");
-                            ProgramStatus::StatusRunning
-                        }
+                if item_window.is_some() {
+                    if opts.verbose > 0 {
+                        println!("ITEM: {} ({}), has_window? true, title: {}", item_name, pid, item_window_title);
                     }
-                };
+                } 
+                else {
+                    if opts.verbose > 0 && !opts.dry_run {
+                        println!("Killing the process {}", pid);
+                    } 
+                    else if opts.verbose > 0 && opts.dry_run {
+                        println!("[DRY RUN] Would kill the process {}", pid);
+                    }
+                        if !opts.dry_run {
+                        item.kill(None).ok();
+                    }
+                }
 
                 if opts.verbose > 0 {
                     println!(
