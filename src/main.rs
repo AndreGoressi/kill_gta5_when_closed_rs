@@ -12,7 +12,7 @@ use std::{thread, time};
 #[cfg(feature = "clap")]
 use clap::Clap;
 
-const DEFAULT_PROCESS_NAME: &str = "gta5.exe";
+const DEFAULT_PROCESS_NAME: &str = "gta5_enhanced.exe";
 
 #[cfg(feature = "clap")]
 #[derive(Clap)]
