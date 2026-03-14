@@ -2,7 +2,7 @@
 name = "kill_gta5_enhanced_when_closed_rs"
 version = "0.1.0"
 authors = ["Andre Goressi"]
-edition = "2019"
+edition = "2018"
 build = "build.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
