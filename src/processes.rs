@@ -140,6 +140,9 @@ pub fn get_processes_by_name(name: &str, initial_capacity: Option<usize>) -> Vec
     .into_iter()
     .for_each(|pid| match NamedProcess::open(pid) {
         Ok(proc) => {
+            if proc.name.eq_ignore_ascii_case("kill_gta5_enhanced_when_closed_rs.exe") {
+                return;
+            }
             println!("Found process: {}", proc.name);
             if proc.name.eq_ignore_ascii_case(name) {
                 ps.push(proc);
