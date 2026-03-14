@@ -18,6 +18,6 @@ winres = "0.1.11"
 [package.metadata.winres]
 OriginalFilename = "killgta5enhancedwhenclosed.exe"
 LegalCopyright = "Copyright © 2026 Andre Goressi. All Rights Reserved. Under GNU General Public License 3.0"
-ProductName = "GTA5 Freeze-Killer"
+ProductName = "GTA5 Enhanced Freeze-Killer"
 ProductVersion = "1.0.0"
 FileDescription = "This program scans your system to see if you have a running GTA5.exe with no window open. If that is the case, it kills the app after some time has passed without cleanup."
