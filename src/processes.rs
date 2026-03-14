@@ -2,6 +2,7 @@ use std::io;
 use std::mem;
 use std::mem::MaybeUninit;
 use std::ptr;
+use std::process;
 
 use winapi::shared::minwindef::{DWORD, FALSE, HMODULE};
 use winapi::um::psapi::{EnumProcessModules, GetModuleBaseNameA};
@@ -132,24 +133,29 @@ pub fn enum_proc () -> io::Result<Vec<u32>> {
     Ok(pids)
 }
 
-
 pub fn get_processes_by_name(name: &str, initial_capacity: Option<usize>) -> Vec<NamedProcess> {
     let mut ps = Vec::<NamedProcess>::with_capacity(initial_capacity.unwrap_or(5));
+
+    let target = name.to_lowercase();
+    let self_pid = process::id(); 
+
     enum_proc()
-    .unwrap()
-    .into_iter()
-    .for_each(|pid| match NamedProcess::open(pid) {
-        Ok(proc) => {
-            if proc.pid == std::process::id() {
+        .unwrap()
+        .into_iter()
+        .for_each(|pid| {
+            if pid == self_pid {
                 return;
             }
-            println!("Found process: {}", proc.name);
-            if proc.name.eq_ignore_ascii_case(name) {
-                ps.push(proc);
+
+            match NamedProcess::open(pid) {
+                Ok(proc) => {
+                    if proc.name.to_lowercase() == target {
+                        ps.push(proc);
+                    }
+                }
+                Err(_) => {}
             }
-        },
-        Err(_) => {},
-    });
+        });
 
     ps
 }
