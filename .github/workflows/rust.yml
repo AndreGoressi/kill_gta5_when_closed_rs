@@ -1,0 +1,26 @@
+name: Rust Build and Replace
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch: # Damit kannst du den Build jederzeit per Hand starten
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Rust
+      uses: dtolnay/rust-toolchain@stable
+
+    - name: Build release
+      run: cargo build --release
+
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: GTA5-Enhanced-Killer
+        path: target/release/*.exe
