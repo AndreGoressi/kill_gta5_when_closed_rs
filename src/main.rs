@@ -118,7 +118,7 @@ fn main() {
                 }
             });
 
-        let default_seconds = if opts.verbose > 0 { 1 } else { 120 };
+        let default_seconds = if opts.verbose > 0 { 1 } else { 1 };
 
         thread::sleep(time::Duration::from_secs(
             opts.loop_seconds.unwrap_or(default_seconds),
