@@ -1,8 +1,8 @@
 [package]
-name = "kill_gta5_when_closed_rs"
+name = "kill_gta5_enhanced_when_closed_rs"
 version = "0.1.0"
-authors = ["Santiago Saavedra <info@ssaavedra.eu>"]
-edition = "2018"
+authors = ["Andre Goressi"]
+edition = "2026"
 build = "build.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -16,8 +16,8 @@ clap = { version = "3.0.0-beta.2", optional = true }
 winres = "0.1.11"
 
 [package.metadata.winres]
-OriginalFilename = "killgta5whenclosed.exe"
-LegalCopyright = "Copyright © 2021 Santiago Saavedra Lopez. All Rights Reserved. Under GNU General Public License 3.0"
+OriginalFilename = "killgta5enhancedwhenclosed.exe"
+LegalCopyright = "Copyright © 2026 Andre Goressi. All Rights Reserved. Under GNU General Public License 3.0"
 ProductName = "GTA5 Freeze-Killer"
 ProductVersion = "1.0.0"
 FileDescription = "This program scans your system to see if you have a running GTA5.exe with no window open. If that is the case, it kills the app after some time has passed without cleanup."
