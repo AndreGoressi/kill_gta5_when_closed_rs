@@ -3,7 +3,7 @@ Kill GTA 5 Enhanced When Already Closed
 
 [![Build status](https://ci.appveyor.com/api/projects/status/0ffhk8vrrmumce77?svg=true)](https://ci.appveyor.com/project/ssaavedra/kill-gta5-when-closed-rs)
 
-This is a toy project which has a single useful purpose: kill GTA 5 after exiting an online game.
+This is a toy project which has a single useful purpose: kill GTA 5 Enhanced after exiting an online game.
 
 It seems to be a bug from Rockstar, and I wanted to learn some Rust on the way.
 
