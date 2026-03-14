@@ -16,7 +16,7 @@ const DEFAULT_PROCESS_NAME: &str = "GTA5_Enhanced.exe";
 
 #[cfg(feature = "clap")]
 #[derive(Clap)]
-#[clap(version = "1.0", author = "Santiago Saavedra")]
+#[clap(version = "1.0", author = "Andre Goressi")]
 struct ClapCliOpts {
     #[clap(short, long, env, default_value = DEFAULT_PROCESS_NAME)]
     process_name: String,
